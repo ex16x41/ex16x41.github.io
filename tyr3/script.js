@@ -1,6 +1,6 @@
 var config = {
     // Easily just add extensions bellow and the program will go through them
-    "Documents": [
+    "Row1": [
         "pdf",
         "doc",
         "docx",
@@ -16,7 +16,7 @@ var config = {
         "xml",
         "klm"
     ],
-    "Databases": [
+    "Row2": [
         "php",
         "sql",
         "sqlite",
@@ -26,7 +26,7 @@ var config = {
         "sis",
         "odb"
     ],
-    "Software": [
+    "Row3": [
         "env",
         "cfg",
         "conf",
@@ -38,34 +38,33 @@ var config = {
 };
 //--------------------------------------------------------------
 //get checkbox elements
-var checkDocuments = document.getElementById("searchDocuments");
-var checkDatabases = document.getElementById("searchDatabases");
-var checkSoftware = document.getElementById("searchSoftware");
+var check1 = document.getElementById("searchRow1");
+var check2 = document.getElementById("searchRow2");
+var check3 = document.getElementById("searchRow3");
 
 var counter = 0; //global counter for blocked popups
 
 //get text placeholders
 var site = document.getElementById('site');
-var keyword = document.getElementById('keyword');
 
 //--------------------------------------------------------------
 function search() {
     counter = 0; //reset counter on every click 
     console.log(counter);
     //Checking if none of the checkboxes are checked and alerts the user
-    if (!checkDocuments.checked && !checkDatabases.checked && !checkSoftware.checked) {
+    if (!checkRow1.checked && !checkRow2.checked && !checkRow3.checked) {
         alert("You have to check one option");
     }
 
     //Depending on the checkbox checked, run that query with array provided
-    if (checkDocuments.checked) {
-        searchQuery(config.Documents);
+    if (checkRow1.checked) {
+        searchQuery(config.Row1);
     }
-    if (checkDatabases.checked) {
-        searchQuery(config.Databases);
+    if (checkRow2.checked) {
+        searchQuery(config.Row2);
     }
-    if (checkSoftware.checked) {
-        searchQuery(config.Software);
+    if (checkRow3.checked) {
+        searchQuery(config.Row3);
     }
     // Check if it detected blocked popups
     if (counter > 0) {
@@ -74,7 +73,7 @@ function search() {
 }
 function searchQuery(array) {
     array.forEach(extension => {
-        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}+%22${keyword.value}%22`, "_blank"));
+        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}%22`, "_blank"));
     });
 }
 function isBlocked(popupWindow){
