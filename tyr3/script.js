@@ -34,6 +34,9 @@ var config = {
         "cfm",
         "log",
         "inf"
+     ],
+    "Misconfig": [
+        "null",
     ]
 };
 //--------------------------------------------------------------
@@ -41,12 +44,12 @@ var config = {
 var checkDocuments = document.getElementById("searchDocuments");
 var checkDatabases = document.getElementById("searchDatabases");
 var checkSoftware = document.getElementById("searchSoftware");
+var checkMisconfig = document.getElementById("searchMisconfig");
 
 var counter = 0; //global counter for blocked popups
 
 //get text placeholders
 var site = document.getElementById('site');
-var keyword = document.getElementById('keyword');
 
 //--------------------------------------------------------------
 function search() {
@@ -67,6 +70,9 @@ function search() {
     if (checkSoftware.checked) {
         searchQuery(config.Software);
     }
+    if (checkMisconfig.checked) {
+        searchQuery(config.Misconfig);
+    }
     // Check if it detected blocked popups
     if (counter > 0) {
         alert(`Our checker says ${counter} popups might have been blocked, please allow popups and try again!`);
@@ -74,7 +80,7 @@ function search() {
 }
 function searchQuery(array) {
     array.forEach(extension => {
-        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}+%22${keyword.value}%22`, "_blank"));
+        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}%22`, "_blank"));
     });
 }
 function isBlocked(popupWindow){
