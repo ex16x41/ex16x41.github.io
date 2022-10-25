@@ -9,7 +9,7 @@ Enter domain name or generic domain search (follow tricks and tips for clarifica
 
 ### What does Tyr search for?
 
-Internal Exposure  
+Internal Exposure
 > Exposure of data within the defined domain with focus on various types of security isconfigurations and human error.
 
 Internal Subdomains
