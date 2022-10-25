@@ -22,9 +22,7 @@ var config = {
         "idb",
         "cdb",
         "sis",
-        "odb"
-    ],
-    "Software": [
+        "odb",
         "env",
         "cfg",
         "conf",
@@ -33,7 +31,7 @@ var config = {
         "log",
         "inf"
      ],
-    "Misconfig": [
+    "InternalSubdomain": [
         "-www", + "-support",
     ]
 };
