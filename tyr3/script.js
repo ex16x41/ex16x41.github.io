@@ -57,10 +57,10 @@ function search() {
     }
 
     //Depending on the checkbox checked, run that query with array provided
-    if (checkDocuments.checked) {
+    if (checkInternalExposure.checked) {
         searchQuery(config.InternalExposure);
     }
-    if (checkDatabases.checked) {
+    if (checkInternalSubdomain.checked) {
         searchQuery(config.InternalSubdomain);
     }
     // Check if it detected blocked popups
