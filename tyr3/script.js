@@ -1,20 +1,6 @@
 var config = {
     // Easily just add extensions bellow and the program will go through them
-    "Intexp": [
-        "pdf",
-        "doc",
-        "docx",
-        "csv",
-        "xls",
-        "xlsx",
-        "txt",
-        "rtf",
-        "odt",
-        "ppt",
-        "pptx",
-        "pptm",
-        "xml",
-        "klm",
+    "Internal1": [
         "php",
         "sql",
         "sqlite",
@@ -22,7 +8,9 @@ var config = {
         "idb",
         "cdb",
         "sis",
-        "odb",
+        "odb"
+    ],
+    "Internal2": [
         "env",
         "cfg",
         "conf",
@@ -30,15 +18,13 @@ var config = {
         "cfm",
         "log",
         "inf"
-     ],
-    "Intsub": [
-        "-www", + "-support",
     ]
 };
 //--------------------------------------------------------------
 //get checkbox elements
-var checkIntexp = document.getElementById("searchIntexp");
-var checkIntsub = document.getElementById("searchIntsub");
+var checkInternal1 = document.getElementById("searchInternal1");
+var checkInternal2 = document.getElementById("searchInternal2");
+var checkInternal3 = document.getElementById("searchInternal3");
 
 var counter = 0; //global counter for blocked popups
 
@@ -50,16 +36,19 @@ function search() {
     counter = 0; //reset counter on every click 
     console.log(counter);
     //Checking if none of the checkboxes are checked and alerts the user
-    if (!checkIntexp.checked && !checkIntsub.checked) {
+    if (!checkInternal1.checked && !checkInternal2.checked && !checkInternal3.checked) {
         alert("You have to check one option");
     }
 
     //Depending on the checkbox checked, run that query with array provided
-    if (checkIntexp.checked) {
-        searchQuery(config.Intexp);
+    if (checkInternal1.checked) {
+        searchQuery(config.Internal1);
     }
-    if (checkIntsub.checked) {
-        searchQuery(config.Intsub);
+    if (checkInternal2.checked) {
+        searchQuery(config.Internal2);
+    }
+    if (checkInternal3.checked) {
+        searchQuery(config.Internal3);
     }
     // Check if it detected blocked popups
     if (counter > 0) {
@@ -68,7 +57,7 @@ function search() {
 }
 function searchQuery(array) {
     array.forEach(extension => {
-        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}%22`, "_blank"));
+        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}+%22`, "_blank"));
     });
 }
 function isBlocked(popupWindow){
