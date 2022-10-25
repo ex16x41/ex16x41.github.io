@@ -56,7 +56,7 @@ function search() {
     counter = 0; //reset counter on every click 
     console.log(counter);
     //Checking if none of the checkboxes are checked and alerts the user
-    if (!checkDocuments.checked && !checkDatabases.checked && !checkSoftware.checked) {
+    if (!checkDocuments.checked && !checkDatabases.checked && !checkSoftware.checked && !checkMisconfig.checked) {
         alert("You have to check one option");
     }
 
