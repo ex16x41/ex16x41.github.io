@@ -1,6 +1,6 @@
 var config = {
     // Easily just add extensions bellow and the program will go through them
-    "Row1": [
+    "Documents": [
         "pdf",
         "doc",
         "docx",
@@ -16,7 +16,7 @@ var config = {
         "xml",
         "klm"
     ],
-    "Row2": [
+    "Databases": [
         "php",
         "sql",
         "sqlite",
@@ -26,7 +26,7 @@ var config = {
         "sis",
         "odb"
     ],
-    "Row3": [
+    "Software": [
         "env",
         "cfg",
         "conf",
@@ -38,9 +38,9 @@ var config = {
 };
 //--------------------------------------------------------------
 //get checkbox elements
-var check1 = document.getElementById("searchRow1");
-var check2 = document.getElementById("searchRow2");
-var check3 = document.getElementById("searchRow3");
+var checkDocuments = document.getElementById("searchDocuments");
+var checkDatabases = document.getElementById("searchDatabases");
+var checkSoftware = document.getElementById("searchSoftware");
 
 var counter = 0; //global counter for blocked popups
 
@@ -52,19 +52,19 @@ function search() {
     counter = 0; //reset counter on every click 
     console.log(counter);
     //Checking if none of the checkboxes are checked and alerts the user
-    if (!checkRow1.checked && !checkRow2.checked && !checkRow3.checked) {
+    if (!checkDocuments.checked && !checkDatabases.checked && !checkSoftware.checked) {
         alert("You have to check one option");
     }
 
     //Depending on the checkbox checked, run that query with array provided
-    if (checkRow1.checked) {
-        searchQuery(config.Row1);
+    if (checkDocuments.checked) {
+        searchQuery(config.Documents);
     }
-    if (checkRow2.checked) {
-        searchQuery(config.Row2);
+    if (checkDatabases.checked) {
+        searchQuery(config.Databases);
     }
-    if (checkRow3.checked) {
-        searchQuery(config.Row3);
+    if (checkSoftware.checked) {
+        searchQuery(config.Software);
     }
     // Check if it detected blocked popups
     if (counter > 0) {
@@ -73,7 +73,7 @@ function search() {
 }
 function searchQuery(array) {
     array.forEach(extension => {
-        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}`, "_blank"));
+        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}+%22`, "_blank"));
     });
 }
 function isBlocked(popupWindow){
