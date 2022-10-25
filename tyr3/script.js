@@ -1,6 +1,6 @@
 var config = {
     // Easily just add extensions bellow and the program will go through them
-    "Documents": [
+    "InternalExposure": [
         "pdf",
         "doc",
         "docx",
@@ -14,9 +14,7 @@ var config = {
         "pptx",
         "pptm",
         "xml",
-        "klm"
-    ],
-    "Databases": [
+        "klm",
         "php",
         "sql",
         "sqlite",
@@ -41,10 +39,8 @@ var config = {
 };
 //--------------------------------------------------------------
 //get checkbox elements
-var checkDocuments = document.getElementById("searchDocuments");
-var checkDatabases = document.getElementById("searchDatabases");
-var checkSoftware = document.getElementById("searchSoftware");
-var checkMisconfig = document.getElementById("searchMisconfig");
+var checkInternalExposure = document.getElementById("searchInternalExposure");
+var checkInternalSubdomain = document.getElementById("InternalSubdomain");
 
 var counter = 0; //global counter for blocked popups
 
@@ -56,22 +52,16 @@ function search() {
     counter = 0; //reset counter on every click 
     console.log(counter);
     //Checking if none of the checkboxes are checked and alerts the user
-    if (!checkDocuments.checked && !checkDatabases.checked && !checkSoftware.checked && !checkMisconfig.checked) {
+    if (!checkInternalExposure.checked && !checkInternalSubdomain.checked) {
         alert("You have to check one option");
     }
 
     //Depending on the checkbox checked, run that query with array provided
     if (checkDocuments.checked) {
-        searchQuery(config.Documents);
+        searchQuery(config.InternalExposure);
     }
     if (checkDatabases.checked) {
-        searchQuery(config.Databases);
-    }
-    if (checkSoftware.checked) {
-        searchQuery(config.Software);
-    }
-    if (checkMisconfig.checked) {
-        searchQuery(config.Misconfig);
+        searchQuery(config.InternalSubdomain);
     }
     // Check if it detected blocked popups
     if (counter > 0) {
