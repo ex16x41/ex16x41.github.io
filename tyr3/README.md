@@ -26,7 +26,7 @@ Tyr currently works on:
 
 * Firefox
 
-Note: Chrome and Firefox users should allow [Tyr](https://ex16x41.github.io/Tyr/) to send pop-ups and use redirects under the settings menu.
+Note: Chrome and Firefox users should allow [Tyr](https://ex16x41.github.io/tyr3/) to send pop-ups and use redirects under the settings menu.
 
 For Chrome users:
 Settings > Security and privacy > Pop-ups and redirects  - Add Tyr to sites allowed to send pop-ups and use redirects
