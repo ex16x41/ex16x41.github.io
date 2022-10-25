@@ -34,7 +34,7 @@ var config = {
         "cfm",
         "log",
         "inf"
-    ]
+    ],
     "Misconfig": [
         "env",
         "cfg",
