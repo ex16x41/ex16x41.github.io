@@ -1,6 +1,6 @@
 var config = {
     // Easily just add extensions bellow and the program will go through them
-    "InternalExposure": [
+    "Intexp": [
         "pdf",
         "doc",
         "docx",
@@ -31,14 +31,14 @@ var config = {
         "log",
         "inf"
      ],
-    "InternalSubdomain": [
+    "Intsub": [
         "-www", + "-support",
     ]
 };
 //--------------------------------------------------------------
 //get checkbox elements
-var checkInternalExposure = document.getElementById("searchInternalExposure");
-var checkInternalSubdomain = document.getElementById("InternalSubdomain");
+var checkIntexp = document.getElementById("searchIntexp");
+var checkIntsub = document.getElementById("searchIntsub");
 
 var counter = 0; //global counter for blocked popups
 
@@ -50,16 +50,16 @@ function search() {
     counter = 0; //reset counter on every click 
     console.log(counter);
     //Checking if none of the checkboxes are checked and alerts the user
-    if (!checkInternalExposure.checked && !checkInternalSubdomain.checked) {
+    if (!checkIntexp.checked && !checkIntsub.checked) {
         alert("You have to check one option");
     }
 
     //Depending on the checkbox checked, run that query with array provided
-    if (checkInternalExposure.checked) {
-        searchQuery(config.InternalExposure);
+    if (checkIntexp.checked) {
+        searchQuery(config.Intexp);
     }
-    if (checkInternalSubdomain.checked) {
-        searchQuery(config.InternalSubdomain);
+    if (checkIntsub.checked) {
+        searchQuery(config.Intsub);
     }
     // Check if it detected blocked popups
     if (counter > 0) {
