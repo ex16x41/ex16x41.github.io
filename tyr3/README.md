@@ -7,7 +7,7 @@ A simple Google query builder for document file discovery
 
 Simply enter the url of the target website and a keyword, and let Tyr do the rest of the work.
 
-### Which filetypes does Tyr search for?
+### What does Tyr search for?
 By default, Tyr will open a new tab with the entered sitename and keyword for: .PDF .DOCX .DOC .CSV .XLSX .TXT .RTF .ODT .PPTX .PPTM .PPT . XML .KML
 
 By selecting Databases or Software under the "More filetypes" tab, it will search for: .PHP .SQL .SQLITE .PDB .IDB .CDB .SIS .ODB and .ENV .CFG .CONF .CONFIG .CFM .LOG .INF files respectively
@@ -36,4 +36,3 @@ Privacy & Security > Block pop-up windows > Exceptions
 v1.0.1
 
 - - - -
-Have fun!
