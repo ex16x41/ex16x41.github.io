@@ -5,15 +5,15 @@ A simple Google query builder for document file discovery
 
 ### How does it work?
 
-Simply enter the url of the target website and a keyword, and let Tyr do the rest of the work.
+Enter domain name or generic domain search (follow tricks and tips for clarification).
 
 ### What does Tyr search for?
 
 Internal Exposure  
-* Exposure of data within the defined domain with focus on various types of security isconfigurations and human error.
+> Exposure of data within the defined domain with focus on various types of security isconfigurations and human error.
 
 Internal Subdomains
-* Using an elimination method to identify domains, this is different method from just using a subdomain enum, this is easier to identify interesting interfaces, servers, misconfigured portals.
+> Using an elimination method to identify domains, this is different method from just using a subdomain enum, this is easier to identify interesting interfaces, servers, misconfigured portals.
 
 
 ### Browser compatibility
