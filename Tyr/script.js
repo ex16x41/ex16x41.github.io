@@ -86,7 +86,7 @@ function search() {
 }
 function searchQuery(array) {
     array.forEach(extension => {
-        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}, "_blank"));
+        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}', "_blank"));
     });
 }
 function isBlocked(popupWindow){
