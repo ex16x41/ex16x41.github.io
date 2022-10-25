@@ -16,12 +16,12 @@ body {
 }
 
 a {
-    color: #000;
+    color: #fff;
     font-style: normal;
   }
 
   a:hover {
-    color: #000;
+    color: #fff;
     font-style: normal;
   }
 .main {
@@ -41,9 +41,9 @@ a {
   }
 
   .btn-primary {
-    color: #000;
+    color: #fff;
     background-color: #fff;
-    border-color: #000
+    border-color: #fff
   }
   
   .btn-primary:hover {
