@@ -1,6 +1,22 @@
 var config = {
     // Easily just add extensions bellow and the program will go through them
-    "Internal1": [
+    "Documents": [
+        "pdf",
+        "doc",
+        "docx",
+        "csv",
+        "xls",
+        "xlsx",
+        "txt",
+        "rtf",
+        "odt",
+        "ppt",
+        "pptx",
+        "pptm",
+        "xml",
+        "klm"
+    ],
+    "Databases": [
         "php",
         "sql",
         "sqlite",
@@ -10,7 +26,7 @@ var config = {
         "sis",
         "odb"
     ],
-    "Internal2": [
+    "Software": [
         "env",
         "cfg",
         "conf",
@@ -18,40 +34,38 @@ var config = {
         "cfm",
         "log",
         "inf"
-    ],
-    "Internal3": [
-        "-www",
     ]
 };
 //--------------------------------------------------------------
 //get checkbox elements
-var checkInternal1 = document.getElementById("searchInternal1");
-var checkInternal2 = document.getElementById("searchInternal2");
-var checkInternal3 = document.getElementById("searchInternal3");
+var checkDocuments = document.getElementById("searchDocuments");
+var checkDatabases = document.getElementById("searchDatabases");
+var checkSoftware = document.getElementById("searchSoftware");
 
 var counter = 0; //global counter for blocked popups
 
 //get text placeholders
 var site = document.getElementById('site');
+var keyword = document.getElementById('keyword');
 
 //--------------------------------------------------------------
 function search() {
     counter = 0; //reset counter on every click 
     console.log(counter);
     //Checking if none of the checkboxes are checked and alerts the user
-    if (!checkInternal1.checked && !checkInternal2.checked && !checkInternal3.checked) {
+    if (!checkDocuments.checked && !checkDatabases.checked && !checkSoftware.checked) {
         alert("You have to check one option");
     }
 
     //Depending on the checkbox checked, run that query with array provided
-    if (checkInternal1.checked) {
-        searchQuery(config.Internal1);
+    if (checkDocuments.checked) {
+        searchQuery(config.Documents);
     }
-    if (checkInternal2.checked) {
-        searchQuery(config.Internal2);
+    if (checkDatabases.checked) {
+        searchQuery(config.Databases);
     }
-    if (checkInternal3.checked) {
-        searchQuery(config.Internal3);
+    if (checkSoftware.checked) {
+        searchQuery(config.Software);
     }
     // Check if it detected blocked popups
     if (counter > 0) {
@@ -60,7 +74,7 @@ function search() {
 }
 function searchQuery(array) {
     array.forEach(extension => {
-        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}+%22`, "_blank"));
+        isBlocked(window.open(`http://google.com/search?q=site%3A${site.value}+filetype%3A${extension}+%22${keyword.value}%22`, "_blank"));
     });
 }
 function isBlocked(popupWindow){
